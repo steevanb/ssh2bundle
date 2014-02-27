@@ -1,0 +1,3 @@
+services:
+    ssh2:
+        class: kujaff\SSH2Bundle\SSH2\Service
