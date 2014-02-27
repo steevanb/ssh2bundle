@@ -1,0 +1,17 @@
+{
+    "name": "kujaff/ssh2bundle",
+    "license": "MIT",
+    "type": "bundle",
+    "description": "Use SSH2 PHP extension with Symfony2",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": { "kujaff\\SSH2Bundle\\": "" }
+    },
+    "target-dir": "kujaff/SSH2Bundle",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/kujaff/ssh2bundle.git"
+        }
+    ]
+}
