@@ -35,7 +35,7 @@ class Connection
 	private function _assertConnected()
 	{
 		if ($this->getState() != self::STATE_CONNECTED) {
-			throw new Exception('Not connected.', $profile);
+			throw new Exception('Not connected.', $this->getProfile());
 		}
 	}
 
