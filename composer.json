@@ -1,5 +1,5 @@
 {
-    "name": "kujaff/ssh2bundle",
+    "name": "steevanb/ssh2bundle",
     "license": "MIT",
     "type": "bundle",
     "description": "Use SSH2 PHP extension with Symfony2",
