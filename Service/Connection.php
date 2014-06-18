@@ -1,0 +1,33 @@
+<?php
+
+namespace steevanb\SSH2Bundle\Service;
+
+use steevanb\SSH2Bundle\Entity\Connection;
+use steevanb\SSH2Bundle\Entity\Profile;
+
+/**
+ * Service for SSH2 connections
+ */
+class Connection
+{
+
+    /**
+     * Return new connection
+     *
+     * @param string $address
+     * @param string $login
+     * @param string $password
+     * @param int $port
+     * @param boolean $autoConnect
+     * @return Connection
+     */
+    public function connect($address, $login, $password, $port = 22)
+    {
+        $profile = new Profile();
+        $profile->setAddress($address);
+        $profile->setLogin($login);
+        $profile->setPassword($password);
+        $profile->setPort($port);
+        return new Connection($profile, true);
+    }
+}

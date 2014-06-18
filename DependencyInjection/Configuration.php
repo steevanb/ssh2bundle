@@ -1,6 +1,6 @@
 <?php
 
-namespace kujaff\SSH2Bundle\DependencyInjection;
+namespace steevanb\SSH2Bundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

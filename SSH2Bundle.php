@@ -1,6 +1,6 @@
 <?php
 
-namespace kujaff\SSH2Bundle;
+namespace steevanb\SSH2Bundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

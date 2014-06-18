@@ -1,7 +1,12 @@
-ssh2bundle
-==========
+= SSH2 Bundle for Symfony 2
 
 Bundle to use SSH2 PHP extension with Symfony2
+
+== Installation
+
+[PHP SSH2 extension](Resources/doc/InstallPHPSSH2.md)
+
+[Bundle installation](Resources/doc/Install.md)
 
 SSH2 PHP extension installation
 ===============================
@@ -22,7 +27,7 @@ Composer :
     # composer.json
     {
         "require": {
-            "kujaff/ssh2bundle": "dev-master"
+            "steevanb/ssh2bundle": "dev-master"
         }
     }
 
@@ -35,7 +40,7 @@ Add bundle to your AppKernel :
         {
             $bundles = array(
                 // -----
-                new kujaff\SSH2Bundle\SSH2Bundle(),
+                new steevanb\SSH2Bundle\SSH2Bundle(),
             );
         }
     }

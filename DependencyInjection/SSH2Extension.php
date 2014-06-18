@@ -1,6 +1,6 @@
 <?php
 
-namespace kujaff\SSH2Bundle\DependencyInjection;
+namespace steevanb\SSH2Bundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
