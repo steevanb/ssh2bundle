@@ -14,7 +14,7 @@ class Exception extends \Exception
      * Constructor
      *
      * @param string $message
-     * @param Profile Connection profile
+     * @param Profile $profile
      */
     public function __construct($message, Profile $profile)
     {

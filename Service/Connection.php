@@ -2,7 +2,7 @@
 
 namespace steevanb\SSH2Bundle\Service;
 
-use steevanb\SSH2Bundle\Entity\Connection;
+use steevanb\SSH2Bundle\Entity\Connection as EntityConnection;
 use steevanb\SSH2Bundle\Entity\Profile;
 
 /**
@@ -19,15 +19,15 @@ class Connection
      * @param string $password
      * @param int $port
      * @param boolean $autoConnect
-     * @return Connection
+     * @return EntityConnection
      */
-    public function connect($address, $login, $password, $port = 22)
+    public function connect($address, $login, $password, $port = 22, $autoConnect = true)
     {
         $profile = new Profile();
         $profile->setAddress($address);
         $profile->setLogin($login);
         $profile->setPassword($password);
         $profile->setPort($port);
-        return new Connection($profile, true);
+        return new EntityConnection($profile, $autoConnect);
     }
 }

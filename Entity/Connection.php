@@ -2,7 +2,6 @@
 
 namespace steevanb\SSH2Bundle\Entity;
 
-use steevanb\SSH2Bundle\Entity\Profile;
 use steevanb\SSH2Bundle\Exception\Exception;
 
 /**
