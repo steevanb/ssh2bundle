@@ -33,7 +33,7 @@ class Connection
      *
      * @throws Exception
      */
-    protected function _assertConnected()
+    protected function assertConnected()
     {
         if ($this->getState() != self::STATE_CONNECTED) {
             throw new Exception('Not connected.', $this->getProfile());
@@ -96,10 +96,11 @@ class Connection
      * Execute a command
      *
      * @param string $command
+     * @return string
      */
     public function exec($command)
     {
-        $this->_assertConnected();
+        $this->assertConnected();
 
         $stream = ssh2_exec($this->connection, $command);
         stream_set_blocking($stream, true);
@@ -112,6 +113,7 @@ class Connection
      *
      * @param string $command
      * @param string $separator
+     * @return array
      */
     public function execExplode($command, $separator = ' ')
     {
@@ -125,6 +127,7 @@ class Connection
      * @param int $index Index of the part to return
      * @param string $separator Separator
      * @param mixed $default Default value if $index is not found
+     * @return string
      */
     public function execExplodeIndex($command, $index, $separator = ' ', $default = null)
     {
