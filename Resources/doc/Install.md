@@ -1,13 +1,17 @@
-Bundle installation
-===================
-
 Composer
 --------
+
+```
+composer require steevanb/ssh2bundle 1.1.*
+```
+
+Or add it manually :
+
 ```json
 # composer.json
 {
     "require": {
-        "steevanb/ssh2bundle": "2.*"
+        "steevanb/ssh2bundle": "1.1.*"
     }
 }
 ´´´
@@ -15,14 +19,16 @@ Composer
 Add bundle to your AppKernel
 ----------------------------
 ```php
-    # app/AppKernel.php
-    class AppKernel extends Kernel
+# app/AppKernel.php
+class AppKernel extends Kernel
+{
+    public function registerBundles()
     {
-        public function registerBundles()
-        {
-            $bundles = array(
-                new steevanb\SSH2Bundle\SSH2Bundle(),
-            );
-        }
+        $bundles = array(
+            new steevanb\SSH2Bundle\SSH2Bundle(),
+        );
     }
+}
 ´´´
+
+[Back to index](../../README.md)
