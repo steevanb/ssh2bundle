@@ -14,7 +14,7 @@ Or add it manually :
         "steevanb/ssh2bundle": "1.1.*"
     }
 }
-´´´
+```
 
 Add bundle to your AppKernel
 ----------------------------
