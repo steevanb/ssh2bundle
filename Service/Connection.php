@@ -2,15 +2,14 @@
 
 namespace steevanb\SSH2Bundle\Service;
 
-use steevanb\SSH2Bundle\Entity\Connection as EntityConnection;
 use steevanb\SSH2Bundle\Entity\Profile;
+use steevanb\SSH2Bundle\Entity\Connection as EntityConnection;
 
 /**
  * Service for SSH2 connections
  */
 class Connection
 {
-
     /**
      * Return new connection
      *

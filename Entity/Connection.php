@@ -2,6 +2,7 @@
 
 namespace steevanb\SSH2Bundle\Entity;
 
+use steevanb\SSH2Bundle\Exception\ConnectionException;
 use steevanb\SSH2Bundle\Exception\Exception;
 
 /**
@@ -29,35 +30,27 @@ class Connection
     protected $profile;
 
     /**
-     * Assert connection is established
-     *
-     * @throws Exception
-     */
-    protected function assertConnected()
-    {
-        if ($this->getState() != self::STATE_CONNECTED) {
-            throw new Exception('Not connected.', $this->getProfile());
-        }
-    }
-
-    /**
      * Constructor
      *
      * @param Profile $profile
+     * @param bool $autoConnect
      */
     public function __construct(Profile $profile, $autoConnect = true)
     {
         $this->profile = $profile;
         if ($autoConnect) {
-            $this->connect();
+            $this->assertConnect();
         }
     }
 
     /**
      * Do the connection
+     *
+     * @return bool
      */
     public function connect()
     {
+        $return = false;
         $profile = $this->getProfile();
         $this->connection = @ssh2_connect($profile->getAddress(), $profile->getPort());
         if ($this->connection === false) {
@@ -68,7 +61,42 @@ class Connection
                 $this->state = self::STATE_INVALID_LOGIN;
             } else {
                 $this->state = self::STATE_CONNECTED;
+                $return = true;
             }
+        }
+
+        return $return;
+    }
+
+    /**
+     * Do the connection, and assert it
+     */
+    public function assertConnect()
+    {
+        $this->connect();
+        $this->assertConnected();
+    }
+
+    /**
+     * Assert connection is established
+     *
+     * @throws ConnectionException
+     */
+    public function assertConnected()
+    {
+        if ($this->getState() != self::STATE_CONNECTED) {
+            switch ($this->getState()) {
+                case self::STATE_INVALID_ADDRESS :
+                    $message = 'invalid address';
+                    break;
+                case self::STATE_INVALID_LOGIN :
+                    $message = 'invalid login';
+                    break;
+                default :
+                    $message = 'unknow error';
+                    break;
+            }
+            throw new ConnectionException('Connection error : ' . $message, $this->getProfile());
         }
     }
 
@@ -156,7 +184,7 @@ class Connection
      * @param string $default Default value
      * @return string
      */
-    public function execLine($command, $index, $default = null)
+    public function execLine($command, $index = 0, $default = null)
     {
         $lines = $this->execLines($command);
         return (array_key_exists($index, $lines)) ? $lines[$index] : $default;
