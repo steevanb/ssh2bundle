@@ -17,4 +17,4 @@ Documentation
 
 [Entity\Profile](Resources/doc/profile.md)
 
-[Entity\Documentation](Resources/doc/documentation.md)
+[Entity\Connection](Resources/doc/connection.md)
