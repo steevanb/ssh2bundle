@@ -3,7 +3,6 @@
 namespace steevanb\SSH2Bundle\Entity;
 
 use steevanb\SSH2Bundle\Exception\ConnectionException;
-use steevanb\SSH2Bundle\Exception\Exception;
 
 /**
  * SSH2 connection
