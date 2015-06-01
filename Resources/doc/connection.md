@@ -2,12 +2,18 @@ Entity\Connection
 -----------------
 
 ```php
+# connection state
+const STATE_NOT_ESTABLISHED
+const STATE_INVALID_ADDRESS
+const STATE_INVALID_LOGIN
+const STATE_CONNECTED
+
 # constructor
 __construct(Profile $profile, $autoConnect = true)
 
 # do the connection, save the state into $state (getState() to get it), and return bool
 connect() : bool
-# do the connection, save the state into $state(getState() to get it), and throws a ConnectionException if not it fails
+# do the connection, save the state into $state (getState() to get it), and throws a ConnectionException if not it fails
 assertConnect()
 
 # test the connection, and throws a ConnectionException if connection is not established
