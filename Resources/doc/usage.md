@@ -22,8 +22,8 @@ $connection->execLines('ls -la');
 $connection->execLine('ls -la');
 ```
 
-See [Profile](profile.md)
+See [Entity\Profile](profile.md)
 
-See [Connection](connection.md)
+See [Entity\Connection](connection.md)
 
 [Back to index](../../README.md)
