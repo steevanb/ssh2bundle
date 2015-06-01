@@ -7,19 +7,19 @@ __construct($address = null, $login = null, $password = null, $port = 22)
 
 # address
 setAddress($address) : Profile
-getAddress()
+getAddress() : string
 
 # login
 setLogin($login) : Profile
-getLogin() : Profile
+getLogin() : string
 
 # password
 setPassword($password) : Profile
-getPassword()
+getPassword() : string
 
 # port
 setPort($port) : Profile
-getPort()
+getPort() : int
 ```
 
 See [Entity\Connection](connection.md)
