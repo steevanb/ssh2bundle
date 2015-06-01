@@ -24,4 +24,4 @@ getPort() : int
 
 See [Entity\Connection](connection.md)
 
-[Back to index](../../Resources/README.md)
+[Back to index](../../README.md)
