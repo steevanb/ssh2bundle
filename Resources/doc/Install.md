@@ -2,7 +2,7 @@ Composer
 --------
 
 ```
-composer require steevanb/ssh2bundle 1.1.*
+composer require steevanb/ssh2bundle 2.0.*
 ```
 
 Or add it manually :
@@ -11,7 +11,7 @@ Or add it manually :
 # composer.json
 {
     "require": {
-        "steevanb/ssh2bundle": "1.1.*"
+        "steevanb/ssh2bundle": "2.0.*"
     }
 }
 ```
