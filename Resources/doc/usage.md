@@ -9,6 +9,8 @@ use steevanb\SSH2Bundle\Entity\Connection;
 $profile = new Profile('host', 'login', 'password');
 # create connection, and connect
 $connection = new Connection($profile);
+# or use ssh2 service
+$connection = $container->get('ssh2')->connect('host', 'login', 'password');
 
 # exec command, and return it's output as string
 $connection->exec('ls -la');
