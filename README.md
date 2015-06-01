@@ -4,9 +4,6 @@ SSH2 Bundle for Symfony 2
 
 Bundle to use SSH2 PHP extension with Symfony2
 
-Installation
-------------
-
 [PHP SSH2 extension](Resources/doc/InstallPHPSSH2.md)
 
 [Bundle installation](Resources/doc/Install.md)
