@@ -9,3 +9,12 @@ Bundle to use SSH2 PHP extension with Symfony2
 [Bundle installation](Resources/doc/Install.md)
 
 [Changelog](Resources/doc/changelog.md)
+
+Documentation
+-------------
+
+[How to use it](Resources/doc/usage.md)
+
+[Entity\Profile](Resources/doc/profile.md)
+
+[Entity\Connection](Resources/doc/connection.md)
