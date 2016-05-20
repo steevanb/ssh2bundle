@@ -1,4 +1,8 @@
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/9a2a6100-fc21-4534-8909-737469d0a590/big.png)](https://insight.sensiolabs.com/projects/9a2a6100-fc21-4534-8909-737469d0a590)
+[![version](https://img.shields.io/badge/version-2.0.0-green.svg)](https://github.com/steevanb/ssh2bundle/tree/2.0.0)
+[![symfony](https://img.shields.io/badge/symfony-%3E%3D%202.3-blue.svg)](https://symfony.com/)
+![Total Downloads](https://poser.pugx.org/steevanb/ssh2bundle/downloads)
+[![sensiolabs insight](https://img.shields.io/badge/sensiolabs%20insight-platinum-brightgreen.svg)](https://insight.sensiolabs.com/projects/9a2a6100-fc21-4534-8909-737469d0a590/analyses/16)
+
 SSH2 Bundle for Symfony 2
 =========================
 
