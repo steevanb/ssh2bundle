@@ -15,11 +15,11 @@ $profile = new Profile([
 # create connection, and connect
 $connection = new Connection($profile);
 # or use ssh2 service
-$connection = $container->get('ssh2')->connect(
+$connection = $container->get('ssh2')->connect([
     'address' => $address,
     'login' => $login,
     'password' => $password
-);
+]);
 
 # exec command, and return it's output as string
 $connection->exec('ls -la');
