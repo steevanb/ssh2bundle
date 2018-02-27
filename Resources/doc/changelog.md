@@ -1,3 +1,9 @@
+3.0.0 (2018-02-26)
+------------------
+- add support for rsa-key identification
+- throw ConnectionException on error through the ssh client
+- remove useless Exception extends \Exception
+
 2.0.0 (2015-06-01)
 ------------------
 

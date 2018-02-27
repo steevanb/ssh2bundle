@@ -6,11 +6,20 @@ use steevanb\SSH2Bundle\Entity\Profile;
 use steevanb\SSH2Bundle\Entity\Connection;
 
 # create connection profile
-$profile = new Profile('host', 'login', 'password');
+$profile = new Profile([
+    'address' => 'some ip or valid url',
+    'login' => 'root',
+    'id-rsa-pub' => '/var/www/.ssh/id_rsa.pub',
+    'id-rsa-pem' => '/var/www/.ssh/id_rsa_pem'
+]);
 # create connection, and connect
 $connection = new Connection($profile);
 # or use ssh2 service
-$connection = $container->get('ssh2')->connect('host', 'login', 'password');
+$connection = $container->get('ssh2')->connect([
+    'address' => $address,
+    'login' => $login,
+    'password' => $password
+]);
 
 # exec command, and return it's output as string
 $connection->exec('ls -la');
