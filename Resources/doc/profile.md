@@ -3,7 +3,17 @@ Entity\Profile
 
 ```php
 # constructor
-__construct($address = null, $login = null, $password = null, $port = 22)
+__construct([
+    'adrress' => $address,
+    'port' => $port,
+    'login' => $login,
+    'id-rsa-pub' => $id_rsa_pub,
+    'id-rsa-pem' => $id_rsa_pem
+])
+
+As the user who exec comand is www-data you have to create you keys using www-data user,
+the simplest is to temporary allow bash for this user by editing /etc/passwd
+
 
 # address
 setAddress($address) : Profile
