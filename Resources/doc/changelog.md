@@ -1,3 +1,11 @@
+3.0.0 (2018-03-02)
+------------------
+
+- Remove deprecated extend Exception
+- Add support for rsa keys authentication
+- Handle error on ssh command error
+- change constructors
+
 2.0.0 (2015-06-01)
 ------------------
 
