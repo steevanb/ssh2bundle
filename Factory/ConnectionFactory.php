@@ -1,6 +1,6 @@
 <?php
 
-namespace steevanb\SSH2Bundle\Service;
+namespace steevanb\SSH2Bundle\Factory;
 
 use steevanb\SSH2Bundle\Model\Profile;
 use steevanb\SSH2Bundle\Model\Connection;

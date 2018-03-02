@@ -1,6 +1,6 @@
 <?php
 
-namespace steevanb\SSH2Bundle\Entity;
+namespace steevanb\SSH2Bundle\Model;
 
 use steevanb\SSH2Bundle\Exception\ConnectionException;
 
