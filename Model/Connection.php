@@ -55,7 +55,10 @@ class Connection
         if ($this->connection === false) {
             $this->state = self::STATE_INVALID_ADDRESS;
         } else {
-            $auth = @ssh2_auth_password($this->connection, $profile->getLogin(), $profile->getPassword());
+            $auth = @ssh2_auth_pubkey_file($this->connection, $profile->getLogin(), $profile->getRsaPubKey(), $profile->getRsaPemKey(), $profile->getPassphrase());
+            if ($auth === false) {
+                $auth = @ssh2_auth_password($this->connection, $profile->getLogin(), $profile->getPassword());
+            }
             if ($auth === false) {
                 $this->state = self::STATE_INVALID_LOGIN;
             } else {
@@ -119,20 +122,40 @@ class Connection
         return $this->profile;
     }
 
+    public function getConnection()
+    {
+        return $this->connection;
+    }
+
     /**
      * Execute a command
      *
-     * @param string $command
-     * @return string
+     * @param $command
+     * @return bool|string
+     * @throws ConnectionException
+     *
      */
     public function exec($command)
     {
         $this->assertConnected();
 
-        $stream = ssh2_exec($this->connection, $command);
-        stream_set_blocking($stream, true);
-        $streamOut = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
-        return stream_get_contents($streamOut);
+        if( !($stream = ssh2_exec($this->connection, $command)) ) {
+            throw new ConnectionException(
+                sprintf('%s command failed through ssh', $command),
+                $this->profile
+            );
+        }
+        $errorStream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
+        stream_set_blocking($errorStream, TRUE);
+        stream_set_blocking($stream, TRUE);
+        $output = stream_get_contents($stream);
+        $error_output = stream_get_contents($errorStream);
+        fclose($stream);
+        fclose($errorStream);
+        if (!empty($error_output)) {
+            throw new ConnectionException($error_output, $this->profile);
+        }
+        return $output;
     }
 
     /**
@@ -141,6 +164,7 @@ class Connection
      * @param string $command
      * @param string $separator
      * @return array
+     * @throws ConnectionException
      */
     public function execExplode($command, $separator = ' ')
     {
@@ -155,6 +179,7 @@ class Connection
      * @param string $separator Separator
      * @param mixed $default Default value if $index is not found
      * @return string
+     * @throws ConnectionException
      */
     public function execExplodeIndex($command, $index, $separator = ' ', $default = null)
     {
@@ -167,6 +192,7 @@ class Connection
      *
      * @param type $command
      * @return array
+     * @throws ConnectionException
      */
     public function execLines($command)
     {
@@ -182,6 +208,7 @@ class Connection
      * @param int $index Index of the line to return
      * @param string $default Default value
      * @return string
+     * @throws ConnectionException
      */
     public function execLine($command, $index = 0, $default = null)
     {
